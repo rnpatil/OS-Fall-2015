@@ -1,0 +1,29 @@
+/* xsh_hello_sam.c - xsh_hello_sam */
+
+#include <xinu.h>
+
+#include <stdio.h>
+
+/*------------------------------------------------------------------------
+ * xsh_hello_sam - print Hello <string>, Welcome to the world of Xinu!!
+ *------------------------------------------------------------------------
+ */
+
+shellcmd xsh_hello_sam(int nargs,char *args[])
+{
+	if(nargs>2)
+	{		
+		printf("Too many arguments\n");
+		
+	}
+	else if(nargs<2)
+	{
+		printf("Too less arguments\n");
+	}
+	else 
+	{
+		printf("Hello %s Welcome to the world of XINU!!\n", args[1]);
+	}
+
+}
+
