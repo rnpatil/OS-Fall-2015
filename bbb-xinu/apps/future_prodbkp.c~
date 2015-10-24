@@ -1,0 +1,22 @@
+#include<prodcons.h>
+
+uint future_prod(future *fut) 
+{
+  	irqmask im;
+	im = disable();
+
+	int i, j;
+	j = (int)fut;
+	printf("in producer \n");
+	for (i=0; i<1000; i++) 
+	{
+     
+	    j += i;
+	}
+
+	printf("Produced Value : %d \n",j);
+  
+	future_set(fut, j);
+	restore(im);
+	return OK;
+}

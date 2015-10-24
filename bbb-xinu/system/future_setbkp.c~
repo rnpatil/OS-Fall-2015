@@ -1,0 +1,31 @@
+#include <future.h>
+
+syscall future_set(future* fut, int* value)
+{
+	irqmask im;
+	im = disable();
+	
+	if(fut->state == FUTURE_EMPTY)	    /*set the value of the future with produced value and change the status to FUTURE_VALID*/
+	{
+		
+		fut->value= value;
+		fut->state = FUTURE_VALID;
+		restore(im);
+		return OK;
+		
+	}	
+	else if(fut->state == FUTURE_WAITING)	
+	{
+               	
+		fut->value = value;
+ 		fut->state = FUTURE_VALID;
+		// printf("In set valu0e %d",fut->value);
+		resume(fut->pid);			
+	}
+	else if(fut->state == FUTURE_VALID)	
+        {
+	return SYSERR;
+        }
+return OK;
+}
+

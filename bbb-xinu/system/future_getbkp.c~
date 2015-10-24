@@ -1,0 +1,29 @@
+#include <future.h>
+
+syscall future_get(future* fut, int* value)
+{
+	irqmask im;
+	im = disable();
+
+	if(fut->state == FUTURE_VALID)            /* value is already produced */
+	{
+		*value = fut->value;              /* reading the fut->value to value pointer */
+                restore(im);
+		return OK;
+	}
+	else if(fut->state == FUTURE_EMPTY)       /* value is not yet produced */
+	{
+		fut->state = FUTURE_WAITING;      /* going to waiting  until value get produced */
+		fut->pid = currpid;  
+                suspend(currpid);
+                *value = fut->value;
+		restore(im);
+		return OK;
+	}
+	else if(fut->state == FUTURE_WAITING)
+	{
+	
+	return SYSERR;
+	}
+   return OK;
+}

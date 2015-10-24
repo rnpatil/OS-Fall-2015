@@ -1,0 +1,25 @@
+#include <prodcons.h>
+
+uint future_cons(future *fut) 
+{
+	
+  	irqmask im;
+	im = disable();
+
+	printf("in consumer \n");
+	int i, status=0;
+ 
+	status = future_get(fut, &i);  /* First get the produced value from producer */
+	if (status < 1)  /*Producer isnt yet ready with the produced value*/
+	{
+		printf("future_get failed\n");
+	    	return -1;
+	}
+
+	printf("it produced %d\n", i);
+	restore(im);
+	return OK;
+
+}
+
+
