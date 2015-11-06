@@ -6,6 +6,7 @@ future *f1, *f2, *f3;
 int isNumeric(const char *str) ;
 int flag =0;
 future *f_exclusive, *f_shared, *f_queue;
+struct memblk* memptr;
 
 //Definition for global variable 'n'
 /*Now global variable n will be on Heap so it is accessible all the processes i.e. consume and produce*/
@@ -59,7 +60,9 @@ if(flag == 0)
 	}
 	
 
+
 	
+
 	resume( create(producer, 1024, 20, "producer", 1, count) );
 	resume( create(consumer, 1024, 20, "consumer", 1, count) );
 
@@ -95,12 +98,16 @@ if (flag ==1)
         flag =0;
 
 }
+
+
       //check args[1] if present assign value to count
 
       //create the process producer and consumer and put them in ready queue.
       //Look at the definations of function create and resume in xinu/system folder for reference.      
   return 0;   
 }
+
+
 
 int isNumeric(const char *str) 
 	{
