@@ -72,7 +72,7 @@ extern	shellcmd  xsh_uptime	(int32, char *[]);
 
 /* in file xsh_help.c */
 extern	shellcmd  xsh_help	(int32, char *[]);
-s
+
 /* in file xsh_hello.c */
 extern	shellcmd  xsh_hello	(int32, char *[]);
 
@@ -84,5 +84,8 @@ extern	shellcmd  xsh_prodcons	(int32, char *[]);
 
 /* in file xsh_newmem.c */
 extern	shellcmd  xsh_newmem	(int32, char *[]);
+
+/* in file xsh_.fstest */
+extern	shellcmd  xsh_fstest	(int32, char *[]);
 
 
