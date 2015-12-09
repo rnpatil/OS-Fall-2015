@@ -622,7 +622,7 @@ Linker script and memory map
  .text          0x000000008101424c       0x54 binaries/testprocess.o
                 0x000000008101424c                fact
                 0x0000000081014274                testprocess
- .text          0x00000000810142a0      0x130 binaries/xinuclient.o
+ .text          0x00000000810142a0      0x130 binaries/xinu_client.o
                 0x00000000810142a0                netserver
  .text          0x00000000810143d0       0x2c binaries/ctxsw.o
                 0x00000000810143d0                ctxsw
@@ -882,7 +882,7 @@ Linker script and memory map
  .rodata.str1.4
                 0x00000000810176c0       0x10 binaries/testprocess.o
  .rodata.str1.4
-                0x00000000810176d0       0x4c binaries/xinuclient.o
+                0x00000000810176d0       0x4c binaries/xinu_client.o
                 0x000000008101771c                etext = ABSOLUTE (.)
                 0x0000000081018000                . = ALIGN (0x1000)
  *fill*         0x000000008101771c      0x8e4 
@@ -1153,7 +1153,7 @@ Linker script and memory map
  .data          0x000000008101870c        0x0 binaries/network_producer.o
  .data          0x000000008101870c        0x0 binaries/producer.o
  .data          0x000000008101870c        0x0 binaries/testprocess.o
- .data          0x000000008101870c        0x0 binaries/xinuclient.o
+ .data          0x000000008101870c        0x0 binaries/xinu_client.o
  .data          0x000000008101870c        0x0 binaries/ctxsw.o
  .data          0x000000008101870c        0x0 binaries/intr.o
  .data          0x000000008101870c        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/libgcc.a(_udivsi3.o)
@@ -1409,7 +1409,7 @@ Linker script and memory map
  .bss           0x0000000081019020        0x0 binaries/network_producer.o
  .bss           0x0000000081019020        0x0 binaries/producer.o
  .bss           0x0000000081019020        0x0 binaries/testprocess.o
- .bss           0x0000000081019020        0x0 binaries/xinuclient.o
+ .bss           0x0000000081019020        0x0 binaries/xinu_client.o
  .bss           0x0000000081019020        0x0 binaries/ctxsw.o
  .bss           0x0000000081019020        0x0 binaries/intr.o
  .bss           0x0000000081019020        0x0 /usr/lib/gcc/arm-none-eabi/4.9.3/libgcc.a(_udivsi3.o)
@@ -1744,7 +1744,7 @@ LOAD binaries/network_consumer.o
 LOAD binaries/network_producer.o
 LOAD binaries/producer.o
 LOAD binaries/testprocess.o
-LOAD binaries/xinuclient.o
+LOAD binaries/xinu_client.o
 LOAD binaries/ctxsw.o
 LOAD binaries/intr.o
 LOAD /usr/lib/gcc/arm-none-eabi/4.9.3/libgcc.a
@@ -2225,7 +2225,7 @@ OUTPUT(../compile/xinu elf32-littlearm)
  .ARM.attributes
                 0x0000000000003097       0x35 binaries/testprocess.o
  .ARM.attributes
-                0x00000000000030cc       0x35 binaries/xinuclient.o
+                0x00000000000030cc       0x35 binaries/xinu_client.o
  .ARM.attributes
                 0x0000000000003101       0x25 binaries/ctxsw.o
  .ARM.attributes
@@ -2474,7 +2474,7 @@ OUTPUT(../compile/xinu elf32-littlearm)
  .comment       0x0000000000000000       0x71 binaries/network_producer.o
  .comment       0x0000000000000000       0x71 binaries/producer.o
  .comment       0x0000000000000000       0x71 binaries/testprocess.o
- .comment       0x0000000000000000       0x71 binaries/xinuclient.o
+ .comment       0x0000000000000000       0x71 binaries/xinu_client.o
 
 .debug_frame    0x0000000000000000       0x40
  .debug_frame   0x0000000000000000       0x20 /usr/lib/gcc/arm-none-eabi/4.9.3/libgcc.a(_udivsi3.o)
