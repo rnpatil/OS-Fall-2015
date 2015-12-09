@@ -22,7 +22,7 @@
 #define	AR_FREE		0		/* Slot is unused		*/
 #define	AR_PENDING	1		/* Resolution in progress	*/
 #define	AR_RESOLVED	2		/* Entry is valid		*/
-#define ARP_TIMEUP	300		/*Time at which to clear ARP_cache*/
+#define ARP_TIMEUP	20		/*Time at which to clear ARP_cache*/
 
 #pragma pack(2)
 struct	arppacket {			/* ARP packet for IP & Ethernet	*/
