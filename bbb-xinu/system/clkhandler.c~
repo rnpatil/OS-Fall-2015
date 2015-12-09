@@ -70,7 +70,7 @@ int clear_arp(void)
 	{
 	if(arpcache[j].arstate != AR_FREE)
 	{  
-        if((clktime - arpcache[j].time) == ARP_TIMEUP)
+        if((clktime - arpcache[j].time) >= ARP_TIMEUP)
 		{
                 arpcache[j].arstate = AR_FREE;           
        		 }

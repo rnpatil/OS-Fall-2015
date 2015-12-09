@@ -85,5 +85,7 @@ extern	shellcmd  xsh_prodcons	(int32, char *[]);
 /* in file xsh_newmem.c */
 extern	shellcmd  xsh_newmem	(int32, char *[]);
 
+extern	shellcmd  xsh_network   (int32, char *[]);
+
 
 

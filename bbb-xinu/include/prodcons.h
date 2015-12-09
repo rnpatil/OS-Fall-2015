@@ -20,3 +20,9 @@
 
 uint future_cons(future *fut);
 uint future_prod(future *fut);
+
+
+//network
+
+uint net_consumer(future *fut);
+uint net_producer(future *fut);

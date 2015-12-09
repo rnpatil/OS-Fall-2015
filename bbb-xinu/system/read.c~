@@ -25,7 +25,7 @@ syscall	read(
 	devptr = (struct dentry *) &devtab[descrp];
 
 	retval = (*devptr->dvread) (devptr, buffer, count);
-	
+	printf("return value %d",retval);
 	restore(mask);
 
 	return retval;

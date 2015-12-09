@@ -37,6 +37,10 @@ shellcmd xsh_prodcons(int nargs, char *args[])
 	{
 	flag=1;
 	}
+	else if(nargs==2 && strcmp(args[1], "-n") == 0)
+	{
+	flag=2;
+	}
 
 if(flag == 0)
 {
@@ -99,6 +103,13 @@ if (flag ==1)
 
 }
 
+if (flag ==2)
+{
+
+	  resume( create(net_consumer, 1024, 20, "net_consumer", 1, f_exclusive) );
+	  resume( create(net_producer, 1024, 20, "net_producer", 1, f_exclusive) ); 
+flag =0;
+}
 
       //check args[1] if present assign value to count
 

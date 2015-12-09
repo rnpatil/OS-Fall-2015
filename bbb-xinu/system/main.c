@@ -21,7 +21,7 @@ process	main(void)
   netstart(bbb_ipaddr,bbb_router);
   kprintf("\n...creating a shell\n");
   recvclr();
-  resume(create(shell, 8192, 50, "shell", 1, CONSOLE));
+   resume(create(shell, 8192, 50, "shell", 1, CONSOLE)); 
   
   /* Wait for shell to exit and recreate it */
   
@@ -31,6 +31,7 @@ process	main(void)
     kprintf("\n\nMain process recreating shell\n\n");
     resume(create(shell, 4096, 20, "shell", 1, CONSOLE));
   }
+
   return OK;
 }
 

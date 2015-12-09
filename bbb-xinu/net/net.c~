@@ -20,6 +20,7 @@ void	net_init (void)
 	memset((char *)&NetData, NULLCH, sizeof(struct network));
 
 	/* Obtain the Ethernet MAC address */
+      //  kprintf("ETHER0 %d",ETHER0);
 
 	control(ETHER0, ETH_CTRL_GET_MAC, (int32)NetData.ethucast, 0);
 
@@ -74,16 +75,23 @@ process	netin ()
 	int32	retval;			/* Return value from read	*/
 
 	/* Do forever: read a packet from the network and process */
+	kprintf("ETH_ARP %d",ETH_ARP)
+	kprintf("ETH_IP %d",ETH_IP)
 
 	while(1) {
 
 		/* Allocate a buffer */
 
 		pkt = (struct netpacket *)getbuf(netbufpool);
+                
+		//printf("pkt value %d",pkt);
 
 		/* Obtain next packet that arrives */
-
+ 		//kprintf("ETHER0 %d",ETHER0);
+  		//kprintf("Packet %d",pkt);
+ 		//kprintf("PACKLEN %d",(char *)pkt);
 		retval = read(ETHER0, (char *)pkt, PACKLEN);
+		//printf("return value %d",retval);
 		if(retval == SYSERR) {
 			panic("Cannot read from Ethernet\n");
 		}
@@ -93,7 +101,7 @@ process	netin ()
 		eth_ntoh(pkt);
 
 		/* Demultiplex on Ethernet type */
-
+		//kprintf("pkt->net_ethtype %d",pkt->net_ethtype);
 		switch (pkt->net_ethtype) {
 
 		    case ETH_ARP:			/* Handle ARP	*/
