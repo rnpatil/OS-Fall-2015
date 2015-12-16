@@ -2,7 +2,7 @@
 #include <stdio.h>  
 
 
-extern int n,flag;
+extern int n,maxusedflag;
 extern char *sp, *newsp;
 extern uint32 stksize;
 sid32 consumed,produced;
